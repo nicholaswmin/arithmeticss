@@ -9,7 +9,7 @@ No dependencies, `~1kb`.
 ## example
 
 ```bash
-npm i https://github.com/nicholaswmin/calc.git
+npm i https://github.com/nicholaswmin/arithmeticss.git
 ```
 
 Assuming `something.css`:
