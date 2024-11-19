@@ -7,6 +7,9 @@
   "scripts": {
     "test": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100"
   },
+  "engines": {
+    "node": ">=23"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/nicholaswmin/minicalc.git"
