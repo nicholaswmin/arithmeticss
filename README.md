@@ -1,3 +1,5 @@
+[![tests:unit](https://github.com/nicholaswmin/calc/actions/workflows/tests:unit.yml/badge.svg)](https://github.com/nicholaswmin/calc/actions/workflows/tests:unit.yml)
+
 `calc`
 
 tiny (but more stupid) implementation of [CSS calc()][calc] in ES6
