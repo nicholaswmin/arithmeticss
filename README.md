@@ -1,9 +1,9 @@
 [![tests](https://github.com/nicholaswmin/arithmeticss/actions/workflows/tests.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/tests.yml)
+[![100% coverage](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml)
 
-arithmetic expressions on CSS variables
-
-expression is [tokenized][subs-src] & [calculated][calc-src] in userland, 
-without `eval`-like tricks.      
+arithmetic expressions on CSS variables, 
+[tokenized][subs-src] & [calculated][calc-src] in userland, without `eval`-like 
+tricks.    
 No dependencies, `~900 bytes`.
 
 ## example
@@ -90,5 +90,6 @@ node --run coverage
 
 [^1]: `em` is based on the font-size of the parent. Easy.
       `rem` is based on the font-size of the root. Easy.
-      `%` is based on the ??? ... percent is gonna be tricky because 
-      its based on the property where the variable is assigned. Tricky.
+      `%` is based on the ??? ... this is tricky because 
+      its based on the property where the variable is assigned.  
+      It's doable but the syntax is gonna look like crap.
