@@ -4,7 +4,7 @@ arithmetic expressions on CSS variables
 
 expression is [tokenized][subs-src] & [calculated][calc-src] in userland, 
 without `eval`-like tricks.      
-No dependencies, `~960 bytes`.
+No dependencies, `~900 bytes`.
 
 ## example
 
@@ -42,21 +42,29 @@ console.log(calc('--foo * --bar + --baz * 3'))
 
 ## test
 
+> requires node `v23+`
+
+unit tests:
+
 ```bash
 node --run test
 ```
 
-> require 100% coverage & node `v23+`
+coverage:
+
+```bash
+node --run coverage
+```
 
 ## authors
 
-[@nicholaswmin][wmin]
+[@nicholaswmin][author]
 
 ## license
 
 > MIT License
 >
-> Copyright (c) 2024 Nicholas Kyriakides  
+> Copyright (c) 2024 Nicholas Kyriakides   
 > @nicholaswmin
 >
 > Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -69,11 +77,11 @@ node --run test
 > The above copyright notice and this permission notice shall be included in all
 > copies or substantial portions of the Software.
 
+[author]: https://github.com/nicholaswmin
+
 [calc-src]: ./src/calculator.js
 [subs-src]: ./src/transformer.js
 [syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
-
-[wmin]: https://github.com/nicholaswmin
 [calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
 [mit]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
 

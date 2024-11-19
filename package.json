@@ -6,7 +6,8 @@
   "exports": "./index.js",
   "browser": "./index.js",
   "scripts": {
-    "test": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100"
+    "coverage": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 | awk '/start of coverage/,0'",
+    "test": "node --test"
   },
   "engines": {
     "node": ">=23"

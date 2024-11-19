@@ -1,4 +1,4 @@
-name: tests
+name: coverage:100
 
 on:
   push:
@@ -7,8 +7,8 @@ on:
     branches: [ "main" ]
 
 jobs:
-  test:
-    name: tests
+  coverage:
+    name: build
     runs-on: ubuntu-latest
     timeout-minutes: 5
     strategy:
@@ -23,4 +23,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
     - run: npm i --package-lock-only && npm ci
-    - run: node --run test
+    - run: node --run coverage
