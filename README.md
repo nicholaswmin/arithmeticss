@@ -45,7 +45,7 @@ console.log(calc('--foo * --bar + --baz * 3'))
 node --run test
 ```
 
-> requires 100% coverage 
+> require 100% coverage & node `v23+`
 
 ## authors
 
