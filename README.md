@@ -46,7 +46,9 @@ console.log(calc('--foo * --bar + --baz'))
 
 ## test
 
-`node --run test`
+```bash
+node --run test
+```
 
 > requires 100% coverage through thresholds
 
