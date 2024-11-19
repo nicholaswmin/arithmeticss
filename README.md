@@ -1,9 +1,8 @@
-[![tests:unit](https://github.com/nicholaswmin/calc/actions/workflows/tests:unit.yml/badge.svg)](https://github.com/nicholaswmin/calc/actions/workflows/tests:unit.yml)
+[![tests](https://github.com/nicholaswmin/arithmeticss/actions/workflows/tests.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/tests.yml)
 
 arithmetic expressions on CSS variables
 
-the expression is tokenized and calculated in userland,  
-without `eval`-like tricks.    
+expression is tokenized & calculated in userland, without `eval`-like tricks.     
 No dependencies, `~960 bytes`.
 
 ## example
