@@ -2,7 +2,8 @@
 
 arithmetic expressions on CSS variables
 
-expression is tokenized & calculated in userland, without `eval`-like tricks.     
+expression is [tokenized][subs-src] & [calculated][calc-src] in userland, 
+without `eval`-like tricks.      
 No dependencies, `~960 bytes`.
 
 ## example
@@ -68,8 +69,8 @@ node --run test
 > The above copyright notice and this permission notice shall be included in all
 > copies or substantial portions of the Software.
 
-[calc-source]: ./src/calculator.js
-[sub-source]: ./src/transformer.js
+[calc-src]: ./src/calculator.js
+[subs-src]: ./src/transformer.js
 [syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
 
 [wmin]: https://github.com/nicholaswmin
