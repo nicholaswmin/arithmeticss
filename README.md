@@ -4,7 +4,7 @@ arithmetic expressions on CSS variables
 
 the expression is tokenized and calculated in userland,  
 without `eval`-like tricks.    
-No dependencies, `~1kb`.
+No dependencies, `~960 bytes`.
 
 ## example
 
@@ -36,7 +36,7 @@ console.log(calc('--foo * --bar + --baz * 3'))
 ## gotchas
 
 - It's unitless. `50% + 100em` is `150`. That's wrong but idc for my use case.
-  variable->value [substitution][sub-source] is just 15? LOC. 
+  [`variable`->`value` substitution][sub-source] is just 15? LOC. 
   Theres a bunch of tests. Extend it.[^1]
 - No parentheses/round-bracket support. i.e: `--foo * (--bar + 5)` is invalid.
   Adding support needs a [shunting-yard][syard] implementation which is 
