@@ -2,14 +2,17 @@
 
 tiny (but more stupid) implementation of [CSS calc()][calc] in ES6
 
-calculates expressions: `--foo * --bar + --baz` based on CSS variables.  
+evaluates expressions like: `--foo * --bar + --baz`.  
+Not based on `eval`; it tokenizes and parses the expression in userland.  
+No dependencies, `~1kb`.
 
-Not based on `eval`; it tokenizes and parses the expression in userland.
-No deps, `~1kb`.
+## example
 
-For example:
+```bash
+npm i https://github.com/nicholaswmin/calc.git
+```
 
-in `foo.css`:
+`styles.css`:
 
 ```css
 :root {
@@ -19,7 +22,7 @@ in `foo.css`:
 }
 ```
 
-and in `foo.js`:
+then in `script.js`:
 
 ```js
 import calc from '@nicholaswmin/calc'
@@ -28,11 +31,16 @@ console.log(calc('--foo * --bar + --baz'))
 // 100
 ```
 
-## install 
+... the end.
 
-```bash
-npm i https://github.com/nicholaswmin/calc.git
-```
+## gotchas
+
+- Very basic expression parser.  
+  If you're looking for a complete emulation of `calc` in JS, you're at the 
+  wrong place.
+- No parentheses/round-brackets. Just the 4 basic arithmetic operations, flat.
+  This is invalid: `--foo * (--bar + --baz)`.
+
 
 ## test
 
