@@ -1,0 +1,27 @@
+{
+  "name": "minicalc",
+  "version": "0.1.0",
+  "description": "basic CSS calc() implementation in ES6",
+  "type": "module",
+  "exports": "./index.js",
+  "scripts": {
+    "test": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholaswmin/minicalc.git"
+  },
+  "keywords": [
+    "calc",
+    "css",
+    "parser",
+    "math-function",
+    "css-function"
+  ],
+  "author": "Nicholas Kyriakides <nik.kyriakides@gmail.com> (https://github.com/nicholaswmin)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nicholaswmin/calc/issues"
+  },
+  "homepage": "https://github.com/nicholaswmin/calc#readme"
+}
