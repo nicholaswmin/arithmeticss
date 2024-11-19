@@ -37,7 +37,7 @@ console.log(calc('--foo * --bar + --baz'))
 
 ## gotchas
 
-- Very basic expression parser.  
+- Very basic expression parser. The calculator is [15 lines][calc-source].
   If you're looking for a complete emulation of `calc` in JS, you're at the 
   wrong place.
 - No parentheses/round-brackets. Just the 4 basic arithmetic operations, flat.
@@ -73,7 +73,7 @@ node --run test
 > The above copyright notice and this permission notice shall be included in all
 > copies or substantial portions of the Software.
 
-
+[calc-source]: ./src/calculator.js
 [wmin]: https://github.com/nicholaswmin
 [calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
 [mit]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
