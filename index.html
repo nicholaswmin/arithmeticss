@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Basic arithmetic on CSS variables">
+    <title>calc() demo</title>
+  </head>
+  <style>      
+    :root {
+      --foo: 10px;
+      --bar: 5;
+      --baz: 2;
+    }
+
+    body { width: 70ch; margin: auto; font-family: sans-serif; }
+  </style>
+  
+  <script type="module">
+    import calc from './index.js'
+    
+    window.calc = calc
+    window.updateCSSVariable = ({ id, value }, unit = '') => {
+      document.documentElement.style.setProperty('--' + id, value + unit)  
+      
+      // The grid is automatically redrawn because it listens for
+      // `change` & `input` events on `window`.
+    }
+  </script>
+  
+  <h3>Hello</h3>
+  <body>
+</html>

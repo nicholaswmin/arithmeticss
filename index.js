@@ -1,11 +1,10 @@
-import substitute from './src/tokenizer.js'
+import transform from './src/transformer.js'
 import calculate from './src/calculator.js'
 
-const exception = (err, msg) => { throw err(`arg[0]: ${msg}`) }
-const validExpr = arg => typeof arg === 'string' 
-  ? !!arg.length ? !arg.includes('(') ? arg 
-  : exception(SyntaxError, 'does not support parentheses (round brackets)')
-  : exception(TypeError,  'cannot be empty')
-  : exception(TypeError,  `must be a string, is: ${typeof arg}`)
+const complain = (err, msg) => { throw err(`arg[0]: ${msg}`) }
+const validate = arg => typeof arg === 'string' 
+  ? !!arg.length ? arg 
+  : complain(TypeError, 'cannot be empty')
+  : complain(TypeError, `must be a string, is: ${typeof arg}`)
 
-export default (expr, valueFn) => calculate(substitute(validExpr(expr), valueFn))
+export default (raw, valuefn) => calculate(transform(validate(raw), valuefn))

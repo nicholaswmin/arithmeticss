@@ -1,4 +1,6 @@
 import test from 'node:test'
+
+import './window.js'
 import calc from '../index.js'
 
 // @NOTE: 
@@ -41,16 +43,7 @@ test('Invalid arguments throw appropriate errors', async t => {
       await t.test('throws descriptive SyntaxError', t => {
         t.assert.throws(() => calc('--foo > --bar'), {
           name: 'SyntaxError',
-          message: /unparseable expression/
-        })
-      })
-    })
-    
-    await t.test('contains parentheses/round brackets', async t => {
-      await t.test('throws descriptive SyntaxError', async t => {
-        t.assert.throws(() => calc('--foo + (--bar * 2)'), {
-          name: 'SyntaxError',
-          message: /not support parentheses/
+          message: /unparsable expression/
         })
       })
     })

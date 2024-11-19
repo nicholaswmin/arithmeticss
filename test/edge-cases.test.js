@@ -1,4 +1,6 @@
 import test from 'node:test'
+
+import './window.js'
 import calc from '../index.js'
   
 // @NOTE: 
@@ -20,19 +22,19 @@ test('Edge cases', async t => {
   
   await t.test('whitespace at start', async t => {
     await t.test('returns a correct result', async t => {
-      t.assert.strictEqual(calc('--foo + --bar  '), 15)
+      t.assert.strictEqual(calc('--foo + --bar  '), -15)
     })
   })
   
   await t.test('whitespace at end', async t => {
     await t.test('returns correct result', async t => {
-      t.assert.strictEqual(calc('  --foo + --bar'), 15)
+      t.assert.strictEqual(calc('  --foo + --bar'), -15)
     })
   })
   
   await t.test('numeric value is a negative number', async t => {
     await t.test('returns correct result', async t => {
-      t.assert.strictEqual(calc('  --foo + --bar'), 15)
+      t.assert.strictEqual(calc('  --foo + --bar'), -15)
     })
   })
 })
