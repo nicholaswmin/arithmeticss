@@ -1,3 +1,6 @@
+// Worlds simplest stack-based calculator
+// = No parentheses, order-of-operations or anything too fancy.
+
 export default expr => {
   const symbols = /(?:\-?[\d\.]+)|[-\+\*\/]|\s+/g
 

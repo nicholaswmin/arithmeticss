@@ -1,11 +1,9 @@
 [![tests:unit](https://github.com/nicholaswmin/calc/actions/workflows/tests:unit.yml/badge.svg)](https://github.com/nicholaswmin/calc/actions/workflows/tests:unit.yml)
 
-`calc`
+arithmetic expressions on CSS variables
 
-tiny (but more stupid) implementation of [CSS calc()][calc] in ES6
-
-evaluates expressions like: `--foo * --bar + --baz`.  
-Not based on `eval`; it tokenizes and parses the expression in userland.  
+the expression is tokenized and calculated in userland,  
+without `eval`-like tricks.    
 No dependencies, `~1kb`.
 
 ## example
@@ -14,7 +12,7 @@ No dependencies, `~1kb`.
 npm i https://github.com/nicholaswmin/calc.git
 ```
 
-`styles.css`:
+Assuming `something.css`:
 
 ```css
 :root {
@@ -27,22 +25,23 @@ npm i https://github.com/nicholaswmin/calc.git
 then in `script.js`:
 
 ```js
-import calc from '@nicholaswmin/calc'
+import calc from '@nicholaswmin/arithmeticss'
 
-console.log(calc('--foo * --bar + --baz'))
+console.log(calc('--foo * --bar + --baz * 3'))
 // 100
 ```
 
-... the end.
+... thats it. The end.
 
 ## gotchas
 
-- Very basic expression parser. The calculator is [15 lines][calc-source].
-  If you're looking for a complete emulation of `calc` in JS, you're at the 
-  wrong place.
-- No parentheses/round-brackets. Just the 4 basic arithmetic operations, flat.
-  This is invalid: `--foo * (--bar + --baz)`.
-
+- It's unitless. `50% + 100em` is `150`. That's wrong but idc for my use case.
+  variable->value [substitution][sub] is just 15? LOC. Theres a bunch of tests. 
+  Extend it.[^1]
+- No parentheses/round-bracket support. i.e: `--foo * (--bar + 5)` is invalid.
+  Adding support needs a [shunting-yard][syard] implementation which is 
+  10 times as much code. Pass.
+- The unit-tests need Node `v22+`, the rest should run on any version.
 
 ## test
 
@@ -50,7 +49,7 @@ console.log(calc('--foo * --bar + --baz'))
 node --run test
 ```
 
-> requires 100% coverage through thresholds
+> requires 100% coverage 
 
 ## authors
 
@@ -74,6 +73,17 @@ node --run test
 > copies or substantial portions of the Software.
 
 [calc-source]: ./src/calculator.js
+[sub-source]: ./src/transformer.js
+[syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
+
 [wmin]: https://github.com/nicholaswmin
 [calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
 [mit]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
+
+
+## footnotes
+
+[^1]: `em` is based on the font-size of the parent. Easy.
+      `rem` is based on the font-size of the root. Easy.
+      `%` is based on the ??? ... percent is gonna be tricky because 
+      its based on the property where the variable is assigned. Tricky.

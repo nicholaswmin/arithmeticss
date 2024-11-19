@@ -1,9 +1,10 @@
 {
-  "name": "minicalc",
+  "name": "arithmeticss",
   "version": "0.1.0",
-  "description": "basic CSS calc() implementation in ES6",
+  "description": "Basic arithmetic on CSS variables",
   "type": "module",
   "exports": "./index.js",
+  "browser": "./index.js",
   "scripts": {
     "test": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100"
   },

@@ -16,12 +16,6 @@ globalThis.getComputedStyle = element => {
     // - must return string, hyphen-case
     // - if not found return ''
     getPropertyValue: prop => ({ 
-      // must include, at least:
-      // - 0, as string, i.e: '0'
-      // - suffixed number, as string, i.e: '50%'
-      // - negative number, as string, i.e: '-10'
-      // - positive number, as string, i.e: '20'
-      // - non-numeric, i.e 'sans-serif'
       '--foo': '-10', '--bar': '-5', '--baz': '0', 
       '--qux': '5', '--quux': '10', '--corge': 'serif'
     })[prop] || ''
