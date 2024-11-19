@@ -35,7 +35,7 @@ console.log(calc('--foo * --bar + --baz * 3'))
 
 ## gotchas
 
-- It's unitless. `50% + 100em` is `150`. That's wrong. 
+- It's unitless. `50% + 100em` is `150`. That's wrong.   
   I didn't need fancy units so I didn't bother. Theres tests. Extend it.[^1]
 - Doesn't support parentheses. i.e: `--foo * (--bar + 5)` is invalid.  
   Fancy arithmetic needs a [shunting-yard][syard] impl. which is 10x code. Pass.
