@@ -21,6 +21,7 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+    - run: npm i --package-lock-only
     - run: npm ci
     - run: node --run test
       name: Run unit tests
