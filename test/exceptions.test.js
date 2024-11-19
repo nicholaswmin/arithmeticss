@@ -43,7 +43,7 @@ test('Invalid arguments throw appropriate errors', async t => {
       await t.test('throws descriptive SyntaxError', t => {
         t.assert.throws(() => calc('--foo > --bar'), {
           name: 'SyntaxError',
-          message: /unparseable expression/
+          message: /unparsable expression/
         })
       })
     })

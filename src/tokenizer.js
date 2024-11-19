@@ -1,20 +1,18 @@
 const { getComputedStyle, document } = globalThis
 
-const throwError = (err, msg) => { throw err(`CSS property: ${msg}`) }
-const castNumber = str => +str.replace(/[^.\d]/g, '') //? parseInt(str, 10)
-const substitute = (str, sub) => str.replaceAll(sub.prop, sub.value)
-const toValueobj = prop => ({ prop, value: castNumber(vcomputed(prop)) })
+const exception = (err, msg) => { throw err(`CSS property: ${msg}`) }
+const isdefined = prop => !!compute(prop)
+const isnumeric = prop => !Number.isNaN(parseInt(compute(prop), 10)) 
 
-const vcomputed = prop => getComputedStyle(document.body).getPropertyValue(prop)
-const isdefined = prop => !!vcomputed(prop)
-const isnumeric = prop => !Number.isNaN(parseInt(vcomputed(prop), 10)) 
+const replace = (str, sub) => str.replaceAll(sub.prop, sub.value)
+const hydrate = prop => ({ prop, value: numeric(compute(prop)) })
+const compute = prop => getComputedStyle(document.body).getPropertyValue(prop)
+const numeric = value => +value.replace(/[^.\d]/g, '') //? parseInt(str, 10)
 
 const tokenize = expr => expr.split(' ').filter(token => token.startsWith('--'))
 const validate = prop => isdefined(prop) ? isnumeric(prop) ? prop 
-  : throwError(TypeError, `${prop} not numeric`)
-  : throwError(TypeError,  `${prop} not defined`)
+  : exception(TypeError, `${prop} not numeric`)
+  : exception(TypeError, `${prop} not defined`)
 
-export default expr => tokenize(expr)
-    .map(validate)
-    .map(toValueobj)
-    .reduce(substitute, expr, '')
+export default expr => 
+  tokenize(expr).map(validate).map(hydrate).reduce(replace, expr, '')

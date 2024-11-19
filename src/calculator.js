@@ -2,7 +2,7 @@ export default expr => {
   const symbols = /(?:\-?[\d\.]+)|[-\+\*\/]|\s+/g
 
   if (expr !== expr.match(symbols).join(''))
-    throw SyntaxError(`unparseable expression: ${expr}`)
+    throw SyntaxError(`unparsable expression: ${expr}`)
 
   const squish = str => str.trim()
   const tokens = expr.match(symbols).map(squish).filter(Boolean)
