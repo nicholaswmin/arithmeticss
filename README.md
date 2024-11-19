@@ -1,7 +1,7 @@
 [![tests](https://github.com/nicholaswmin/arithmeticss/actions/workflows/tests.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/tests.yml)
 [![100% coverage](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml)
 
-arithmetic expressions on CSS variables, 
+arithmetic expressions on CSS variables,   
 [tokenized][subs-src] & [calculated][calc-src] in userland, without `eval`-like 
 tricks.    
 No dependencies, `~900 bytes`.
