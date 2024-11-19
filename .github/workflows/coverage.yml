@@ -1,4 +1,4 @@
-name: coverage:100
+name: 100% coverage
 
 on:
   push:
