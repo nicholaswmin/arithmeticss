@@ -1,18 +1,20 @@
-import { document, getComputedStyle } from './shim.js'
+const { getComputedStyle, document } = globalThis
 
-const exception = (err, msg) => { throw err(`CSS property: ${msg}`) }
-const parsedNum = str => +str.replace(/[^.\d]/g, '') //? parseInt(str, 10)
-const valueExpr = (str, sub) => str.replaceAll(sub.prop, sub.value)
-const tokenized = expr => expr.split(' ').filter(token => token.startsWith('--'))
-const withValue = prop => ({ prop, value: parsedNum(propValue(prop)) })
+const throwError = (err, msg) => { throw err(`CSS property: ${msg}`) }
+const castNumber = str => +str.replace(/[^.\d]/g, '') //? parseInt(str, 10)
+const substitute = (str, sub) => str.replaceAll(sub.prop, sub.value)
+const toValueobj = prop => ({ prop, value: castNumber(vcomputed(prop)) })
 
-const propValue = prop => getComputedStyle(document.body).getPropertyValue(prop)
-const numerical = prop => !Number.isNaN(parseInt(propValue(prop), 10)) 
-const validProp = prop => propValue(prop) ? numerical(prop) ? prop 
-  : exception(TypeError, `${prop} not numeric`)
-  : exception(TypeError,  `${prop} not defined`)
+const vcomputed = prop => getComputedStyle(document.body).getPropertyValue(prop)
+const isdefined = prop => !!vcomputed(prop)
+const isnumeric = prop => !Number.isNaN(parseInt(vcomputed(prop), 10)) 
 
-export default expr => tokenized(expr)
-    .map(validProp)
-    .map(withValue)
-    .reduce(valueExpr, expr, '')
+const tokenize = expr => expr.split(' ').filter(token => token.startsWith('--'))
+const validate = prop => isdefined(prop) ? isnumeric(prop) ? prop 
+  : throwError(TypeError, `${prop} not numeric`)
+  : throwError(TypeError,  `${prop} not defined`)
+
+export default expr => tokenize(expr)
+    .map(validate)
+    .map(toValueobj)
+    .reduce(substitute, expr, '')

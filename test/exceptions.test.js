@@ -1,4 +1,6 @@
 import test from 'node:test'
+
+import './window.js'
 import calc from '../index.js'
 
 // @NOTE: 

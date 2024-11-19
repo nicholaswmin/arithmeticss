@@ -8,4 +8,4 @@ const validExpr = arg => typeof arg === 'string'
   : exception(TypeError,  'cannot be empty')
   : exception(TypeError,  `must be a string, is: ${typeof arg}`)
 
-export default (expr, valueFn) => calculate(substitute(validExpr(expr), valueFn))
+export default (expr, mapFn) => calculate(substitute(validExpr(expr), mapFn))

@@ -1,15 +1,13 @@
 import test from 'node:test'
+
+import '../window.js'
 import calc from '../../index.js'
   
 // @NOTE: 
 // - Do test just 1 mixed function for each operation type.
 // - Do stay consistent in the pattern you choose throughout.
 
-/* foo, bar.. values:
-'--foo': '-10', '--bar': '-5', '--baz': '0', 
-'--qux': '5', '--quux': '10'
-*/
-
+/* foo, bar, baz.. values set in 'mock-window.js' */
 test('Mixed operation types', async t => {
   await t.test('foo + bar - baz * qux / quux', async t => {
     const result = calc('--foo + --bar - --baz * --qux / --quux')

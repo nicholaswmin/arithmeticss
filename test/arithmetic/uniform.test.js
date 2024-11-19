@@ -1,4 +1,6 @@
 import test from 'node:test'
+
+import '../window.js'
 import calc from '../../index.js'
   
 // @NOTE: 
@@ -18,11 +20,6 @@ import calc from '../../index.js'
 //   Assume user has perfect knowledge of documentation.
 // - Dont test `typeof result === number` more than once 
 //   per operation type/suite
-
-/* foo, bar.. values:
-'--foo': '-10', '--bar': '-5', '--baz': '0', 
-'--qux': '5', '--quux': '10'
-*/
 
 test('Uniform operation type', async t => {
   t.test('Addition', async t => {
