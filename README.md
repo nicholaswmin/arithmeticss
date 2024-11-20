@@ -49,7 +49,7 @@ easy to extend.[^1]
 
 e.g: `--foo * (--bar + 5)` is invalid.    
 
-Fancy arithmetic requires [shunting-yard][syard] implementation, 
+Fancy arithmetic requires a [shunting-yard][syard] implementation, 
 i.e 10x more code. I'll pass.  
 
 ## test
@@ -74,7 +74,7 @@ node --run coverage
 
 ## license
 
-> MIT License
+> MIT LicenseS
 >
 > Copyright (c) 2024 Nicholas Kyriakides   
 >
