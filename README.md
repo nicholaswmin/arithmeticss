@@ -30,15 +30,14 @@ import calc from '@nicholaswmin/arithmeticss'
 
 const res = calc('--foo * --bar + --baz * 3')
 
-console.log(res)
-// logs: 56
+console.log(res) // logs: 56
 ```
 
 ...thats it. The end.
 
 ## gotchas
 
-### It's unitless.   
+### It's unitless
 
 For example: `50% + 100em = 150`, which is wrong.
 
@@ -52,14 +51,14 @@ e.g: `--foo * (--bar + 5)` is invalid.
 Fancy arithmetic requires a [shunting-yard][syard] implementation, 
 i.e 10x more code. I'll pass.  
 
-### whitespace
+### keep whitespace
 
-Don't do this: `--foo+--bar`. It's unreadable and ambiguous.    
+Don't do this: `--foo+--bar`. It's ambiguous.    
 This is ok: `--foo + --bar`.
 
-parsing errors throw a descriptive [`SyntaxError`][synterr].   
-Rest is either a [`TypeError`][typesrr] or (rarely) 
-a [`RangeError`][rangerr].
+Parsing errors always throw a [`SyntaxError`][synterr],   
+any other issue will throw a [`TypeError`][typesrr] or (rarely) a 
+[`RangeError`][rangerr].
 
 ## test
 
