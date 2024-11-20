@@ -1,10 +1,11 @@
-import transform from './src/transformer.js'
-import calculate from './src/calculator.js'
+import transform from './src/transform.js'
+import calculate from './src/calculate.js'
 
-const complain = (err, msg) => { throw err(`arg[0]: ${msg}`) }
-const validate = arg => typeof arg === 'string' 
+const complain = (err, msg, pos = '?') => { throw err(`arg${pos}: ${msg}`) }
+const validate = (arg, pos) => typeof arg === 'string' 
   ? !!arg.length ? arg 
-  : complain(TypeError, 'cannot be empty')
-  : complain(TypeError, `must be a string, is: ${typeof arg}`)
+  : complain(TypeError, 'must be non-empty', pos)
+  : complain(TypeError, `must be a string, is: ${typeof arg}`, pos)
 
-export default (raw, valuefn) => calculate(transform(validate(raw), valuefn))
+export default (rawexp, valuefn) => 
+  calculate(transform(validate(rawexp, 0), valuefn))

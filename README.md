@@ -52,6 +52,14 @@ e.g: `--foo * (--bar + 5)` is invalid.
 Fancy arithmetic requires a [shunting-yard][syard] implementation, 
 i.e 10x more code. I'll pass.  
 
+### whitespace
+
+Don't do this: `--foo+--bar`. It's unreadable and ambiguous.    
+This is ok: `--foo + --bar`.
+
+parsing errors will throw an idiomatic [`SyntaxError`].   
+
+
 ## test
 
 > requires node `v23+`
