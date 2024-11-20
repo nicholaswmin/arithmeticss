@@ -57,8 +57,9 @@ i.e 10x more code. I'll pass.
 Don't do this: `--foo+--bar`. It's unreadable and ambiguous.    
 This is ok: `--foo + --bar`.
 
-parsing errors will throw an idiomatic [`SyntaxError`].   
-
+parsing errors throw a descriptive [`SyntaxError`][synterr].   
+Rest is either a [`TypeError`][typesrr] or (rarely) 
+a [`RangeError`][rangerr].
 
 ## test
 
@@ -105,6 +106,9 @@ node --run coverage
 [calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
 [mit]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
 
+[rangerr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[typesrr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[synterr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError
 
 ## footnotes
 
