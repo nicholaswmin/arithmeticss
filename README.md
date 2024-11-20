@@ -30,8 +30,8 @@ import calc from '@nicholaswmin/arithmeticss'
 
 const res = calc('--foo * --bar + --baz * 3')
 
-console.log(result)
-// 56
+console.log(res)
+// logs: 56
 ```
 
 ...thats it. The end.
