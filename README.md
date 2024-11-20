@@ -2,9 +2,10 @@
 [![100% coverage](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml)
 
 arithmetic expressions on CSS variables,   
-[tokenized][subs-src] & [calculated][calc-src] in userland, without `eval`-like 
+[tokenized][subs-src] & [calculated][calc-src] in userland, w/o `eval`-like 
 tricks.    
-No dependencies, `~900 bytes`.
+
+zero deps, `~900 bytes`.
 
 ## example
 
@@ -12,7 +13,7 @@ No dependencies, `~900 bytes`.
 npm i https://github.com/nicholaswmin/arithmeticss.git
 ```
 
-Assuming `something.css`:
+Assuming `some.css`:
 
 ```css
 :root {
@@ -22,23 +23,34 @@ Assuming `something.css`:
 }
 ```
 
-then in `script.js`:
+then in `some.js`:
 
 ```js
 import calc from '@nicholaswmin/arithmeticss'
 
-console.log(calc('--foo * --bar + --baz * 3'))
-// 100
+const res = calc('--foo * --bar + --baz * 3')
+
+console.log(result)
+// 56
 ```
 
-... thats it. The end.
+...thats it. The end.
 
 ## gotchas
 
-- It's unitless. `50% + 100em` is `150`. That's wrong.   
-  I didn't need fancy units so I didn't bother. Theres tests. Extend it.[^1]
-- Doesn't support parentheses. i.e: `--foo * (--bar + 5)` is invalid.  
-  Fancy arithmetic needs a [shunting-yard][syard] impl. which is 10x code. Pass.
+### It's unitless.   
+
+For example: `50% + 100em = 150`, which is wrong.
+
+I didn't need fancy units so I didn't bother but it should be fairly 
+easy to extend.[^1]
+
+### No parentheses
+
+e.g: `--foo * (--bar + 5)` is invalid.    
+
+Fancy arithmetic requires [shunting-yard][syard] implementation, 
+i.e 10x more code. I'll pass.  
 
 ## test
 
@@ -65,17 +77,17 @@ node --run coverage
 > MIT License
 >
 > Copyright (c) 2024 Nicholas Kyriakides   
-> @nicholaswmin
 >
-> Permission is hereby granted, free of charge, to any person obtaining a copy
-> of this software and associated documentation files (the "Software"), to deal
-> in the Software without restriction, including without limitation the rights
-> to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-> copies of the Software, and to permit persons to whom the Software is
+> Permission is hereby granted, free of charge, to any person obtaining a 
+> copyof this software and associated documentation files (the "Software"), 
+> to deal in the Software *without restriction*, 
+> including without limitation the rights to: 
+> use, copy, modify, merge, publish, distribute, sublicense, and/or sell 
+> copies of the Software, and to permit persons to whom the Software is 
 > furnished to do so, subject to the following conditions:
 > 
-> The above copyright notice and this permission notice shall be included in all
-> copies or substantial portions of the Software.
+> The above copyright notice and this permission notice shall be
+> included in all copies or substantial portions of the Software.
 
 [author]: https://github.com/nicholaswmin
 

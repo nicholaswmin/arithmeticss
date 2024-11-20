@@ -1,14 +1,14 @@
 // Worlds simplest stack-based calculator
 // = No parentheses, order-of-operations or anything too fancy.
 
-export default expr => {
+export default exp => {
   const symbols = /(?:\-?[\d\.]+)|[-\+\*\/]|\s+/g
 
-  if (expr !== expr.match(symbols).join(''))
-    throw SyntaxError(`unparsable expression: ${expr}`)
+  if (exp !== exp.match(symbols).join(''))
+    throw SyntaxError(`unparsable expression: ${exp}`)
 
   const squish = str => str.trim()
-  const tokens = expr.match(symbols).map(squish).filter(Boolean)
+  const tokens = exp.match(symbols).map(squish).filter(Boolean)
   const floats = tokens.map(parseFloat)
   const queued = []
 
