@@ -51,14 +51,13 @@ e.g: `--foo * (--bar + 5)` is invalid.
 Fancy arithmetic requires a [shunting-yard][syard] implementation, 
 i.e 10x more code. I'll pass.  
 
-### keep whitespace
+### dont squash expressions
 
-Don't do this: `--foo+--bar`. It's ambiguous.    
-This is ok: `--foo + --bar`.
+This wont work: `--foo+--bar`. It's ambiguous.     
+This will: `--foo + --bar`.  
 
-Parsing errors always throw a [`SyntaxError`][synterr],   
-any other issue will throw a [`TypeError`][typesrr] or (rarely) a 
-[`RangeError`][rangerr].
+Parsing errors throw a [`SyntaxError`][synterr], the rest will either 
+be a [`TypeError`][typesrr] or (rarely) a [`RangeError`][rangerr].
 
 ## test
 
@@ -112,7 +111,7 @@ node --run coverage
 ## footnotes
 
 [^1]: `em` is based on the font-size of the parent. Easy.
-      `rem` is based on the font-size of the root. Easy.
+      `rem` is based on the font-size of the root. Also easy.
       `%` is based on the ??? ... this is tricky because 
       its based on the property where the variable is assigned.  
       It's doable but the syntax is gonna look like crap.
