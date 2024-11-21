@@ -148,7 +148,7 @@ then simply `import`, with:
 
 [calc-src]: ./src/calculate.js
 [subs-src]: ./src/transform.js
-[demo-url]: https://nicholaswmin.github.io/demo.html
+[demo-url]: https://nicholaswmin.github.io/arithmeticss/demo.html
 [syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
 [eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!
 [calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
