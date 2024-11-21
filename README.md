@@ -7,6 +7,8 @@ arithmetic expressions on CSS variables,
 
 zero deps, `~900 bytes`.
 
+[preview demo][demo-url]
+
 ## example
 
 ```bash
@@ -146,6 +148,7 @@ then simply `import`, with:
 
 [calc-src]: ./src/calculate.js
 [subs-src]: ./src/transform.js
+[demo-url]: /arithmeticss/.github/demo
 [syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
 [eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!
 [calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
