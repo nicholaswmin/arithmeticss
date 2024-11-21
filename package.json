@@ -3,18 +3,18 @@
   "version": "0.1.0",
   "description": "Basic arithmetic on CSS variables",
   "type": "module",
-  "exports": "./index.js",
-  "browser": "./index.js",
+  "exports": "./src/index.js",  
+  "browser": "./src/index.js",
   "scripts": {
-    "coverage": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 | awk '/start of coverage/,0'",
-    "test": "node --test"
+    "test": "node --test",
+    "coverage": "node --test --experimental-test-coverage --test-coverage-lines=100 --test-coverage-branches=100 --test-coverage-functions=100 | awk '/start of coverage/,0'"
   },
   "engines": {
     "node": ">=23"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/nicholaswmin/calc.git"
+    "url": "git+https://github.com/nicholaswmin/arithmeticss.git"
   },
   "keywords": [
     "calc",
@@ -23,10 +23,10 @@
     "math-function",
     "css-function"
   ],
-  "author": "Nicholas Kyriakides <nik.kyriakides@gmail.com> (https://github.com/nicholaswmin)",
+  "author": "@nicholaswmin",  
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nicholaswmin/calc/issues"
+    "url": "https://github.com/nicholaswmin/arithmeticss/issues"
   },
-  "homepage": "https://github.com/nicholaswmin/calc#readme"
+  "homepage": "https://github.com/nicholaswmin/arithmeticss#readme"
 }

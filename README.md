@@ -2,8 +2,8 @@
 [![100% coverage](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml)
 
 arithmetic expressions on CSS variables,   
-[tokenized][subs-src] & [calculated][calc-src] in userland, w/o `eval`-like 
-tricks.    
+[tokenized][subs-src] & [calculated][calc-src] in userland, w/o 
+[`eval`][eval]-like tricks.    
 
 zero deps, `~900 bytes`.
 
@@ -33,7 +33,7 @@ const res = calc('--foo * --bar + --baz * 3')
 console.log(res) // logs: 56
 ```
 
-...thats it. The end.
+...thats all.
 
 ## gotchas
 
@@ -41,7 +41,7 @@ console.log(res) // logs: 56
 
 For example: `50% + 100em = 150`, which is wrong.
 
-I didn't need fancy units so I didn't bother but it should be fairly 
+I didn't need fancy units, so I didn't bother, but it should be fairly 
 easy to extend.[^1]
 
 ### No parentheses
@@ -49,15 +49,16 @@ easy to extend.[^1]
 e.g: `--foo * (--bar + 5)` is invalid.    
 
 Fancy arithmetic requires a [shunting-yard][syard] implementation, 
-i.e 10x more code. I'll pass.  
+i.e., 10x more code. I'll pass.  
 
-### dont squash expressions
+### don't squash expressions
 
-This wont work: `--foo+--bar`. It's ambiguous.     
-This will: `--foo + --bar`.  
+won't work: `--foo+--bar`. It's ambiguous.     
+works: `--foo + --bar`.  
 
 Parsing errors throw a [`SyntaxError`][synterr], the rest will either 
 be a [`TypeError`][typesrr] or (rarely) a [`RangeError`][rangerr].
+
 
 ## test
 
@@ -73,6 +74,38 @@ coverage:
 
 ```bash
 node --run coverage
+```
+
+### contributing
+
+[Guide for Contributors][conrib]
+
+## build
+
+Bundling & minification are application-level concerns,  
+not module-level concerns so there's no `build` or `dist/`
+here.
+
+That being said, you can do:
+
+```bash
+npx esbuild index.js --bundle --minify --analyze --format=esm --outfile="dist/arithmeticss.js"
+```
+
+and move: `dist/arithmeticss.js` to your own project.
+
+then simply `import`, with:
+
+```html
+<!-- ... some html -->s
+
+<script type="module">
+  import calc from './arithmeticss.js'
+  window.calc = calc
+  console.log(calc())
+</script>
+
+<!-- more html ... -->
 ```
 
 ## authors
@@ -96,17 +129,6 @@ node --run coverage
 > The above copyright notice and this permission notice shall be
 > included in all copies or substantial portions of the Software.
 
-[author]: https://github.com/nicholaswmin
-
-[calc-src]: ./src/calculator.js
-[subs-src]: ./src/transformer.js
-[syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
-[calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
-[mit]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
-
-[rangerr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError
-[typesrr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
-[synterr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError
 
 ## footnotes
 
@@ -115,3 +137,20 @@ node --run coverage
       `%` is based on the ??? ... this is tricky because 
       its based on the property where the variable is assigned.  
       It's doable but the syntax is gonna look like crap.
+      
+
+
+<!-- References -->
+
+[author]: https://github.com/nicholaswmin
+
+[calc-src]: ./src/calculate.js
+[subs-src]: ./src/transform.js
+[syard]: https://en.wikipedia.org/wiki/Shunting_yard_algorithm
+[eval]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/eval#never_use_direct_eval!
+[calc]: https://developer.mozilla.org/en-US/docs/Web/CSS/calc
+[mit]: https://en.wikipedia.org/wiki/MIT_License
+
+[rangerr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/RangeError
+[typesrr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError
+[synterr]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/SyntaxError

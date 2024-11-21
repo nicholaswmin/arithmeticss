@@ -1,5 +1,5 @@
-import transform from './src/transform.js'
-import calculate from './src/calculate.js'
+import transform from './transform.js'
+import calculate from './calculate.js'
 
 const complain = (err, msg, pos = '?') => { throw err(`arg${pos}: ${msg}`) }
 const validate = (arg, pos) => typeof arg === 'string' 

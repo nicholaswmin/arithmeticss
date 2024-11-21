@@ -1,7 +1,7 @@
 import test from 'node:test'
 
 import './window.js'
-import calc from '../index.js'
+import calc from '../src/index.js'
 
 // @NOTE: 
 // - Do test for both type and message.
