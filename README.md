@@ -7,7 +7,7 @@ arithmetic expressions on CSS variables,
 
 zero deps, `~900 bytes`.
 
-[preview demo][demo-url]
+[playground][demo-url]
 
 ## example
 
@@ -84,27 +84,26 @@ node --run coverage
 
 ## build
 
-Bundling & minification are application-level concerns,  
-not module-level concerns so there's no `build` or `dist/`
-here.
+bundling & min. are application-level concerns, not module-level concerns   
+so there's no `build` or `dist/` versions here.
 
-That being said, you can do:
+That being said, you can run:
 
 ```bash
-npx esbuild index.js --bundle --minify --analyze --format=esm --outfile="dist/arithmeticss.js"
+npx esbuild index.js --bundle --minify --format=esm --outfile="dist/arithmeticss.js"
 ```
 
-and move: `dist/arithmeticss.js` to your own project.
-
-then simply `import`, with:
+... which builds a minified bundle at: `dist/arithmeticss.js`,  
+which you simply move to your own project & `import` as usual:
 
 ```html
 <!-- ... some html -->s
 
 <script type="module">
   import calc from './arithmeticss.js'
-  window.calc = calc
-  console.log(calc())
+  
+  console.log(calc('--foo + --bar * 10'))
+  // 230
 </script>
 
 <!-- more html ... -->
