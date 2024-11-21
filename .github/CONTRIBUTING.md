@@ -38,8 +38,9 @@ Summarised to one sentence:
       would he have any chance of figuring it out?  
    3. test only the result itself & move on.   
       How it was obtained is none of the tests business.
-
-"This style guide inspired me to create the iPod"
+      
+----
+"This style guide inspired me to create the iPod"  
  Steve Jobs, 2002
  
   
