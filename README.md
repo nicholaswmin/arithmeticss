@@ -2,8 +2,7 @@
 [![100% coverage](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml/badge.svg)](https://github.com/nicholaswmin/arithmeticss/actions/workflows/coverage.yml)
 
 arithmetic expressions on CSS variables,   
-[tokenized][subs-src] & [calculated][calc-src] in userland, w/o 
-[`eval`][eval]-like tricks.    
+[tokenized][subs-src] & [calculated][calc-src] in userland, w/o [`eval`][eval].  
 
 zero deps, `~900 bytes`.
 
@@ -80,7 +79,7 @@ node --run coverage
 
 ### contributing
 
-[Guide for Contributors][cntb-url]
+[contr. guide][cntb-url]
 
 ## build
 
@@ -97,7 +96,7 @@ npx esbuild index.js --bundle --minify --format=esm --outfile="dist/arithmeticss
 which you simply move to your own project & `import` as usual:
 
 ```html
-<!-- ... some html -->s
+<!-- ... some html -->
 
 <script type="module">
   import calc from './arithmeticss.js'
