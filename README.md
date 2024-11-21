@@ -80,7 +80,7 @@ node --run coverage
 
 ### contributing
 
-[Guide for Contributors][conrib]
+[Guide for Contributors][cntb-url]
 
 ## build
 
